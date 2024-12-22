@@ -1,6 +1,8 @@
 # ClarkCoAnalysis
 Analysis of the ballots from the 2024 Presidential election in Clark Co. Nevada.
 
+Data taken from (https://elections.clarkcountynv.gov/electionresultsTV/cvr/24G/24G_CVRExport_NOV_Final_Confidential.zip)
+
 Uses python3 with the numpy and diptest libraries
 
 (The following is taken from the python code)
