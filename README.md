@@ -4,6 +4,7 @@ Analysis of the ballots from the 2024 Presidential election in Clark Co. Nevada.
 Uses python3 with the numpy and diptest libraries
 
 (The following is taken from the python code)
+
 #################################################################
 ################## EXPLANATION , METHODOLOGY ####################
 #################################################################
