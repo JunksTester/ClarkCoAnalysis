@@ -3,59 +3,108 @@ Analysis of the ballots from the 2024 Presidential election in Clark Co. Nevada.
 
 Data taken from (https://elections.clarkcountynv.gov/electionresultsTV/cvr/24G/24G_CVRExport_NOV_Final_Confidential.zip)
 
-Uses python3 with the numpy and diptest libraries
+Uses python3 with the numpy and matplotlib libraries.
 
 (The following is taken from the python code)
-
-
-# EXPLANATION , METHODOLOGY
 
 We are given the Clark Co. Nevada ballot data
 We want to check if the data has been manipulated
 How do we do this?
 
-Hypothesis -- we expect rates to follow a Poisson-like distribution
-Recommend (https://en.wikipedia.org/wiki/Poisson_distribution)
-Its wiki but its OK reading material
+Hypothesis -- If we can control for the location (precinct) and compare tabulators,
+             then, we propose, that manipulation looks like a multi-modal 
+             (multiple peaks) distribution. If the data is unimodal (one peak) 
+             then we propose that the data is unmanipulated.
 
-The gist is that, be it fundamental particle decays or rates of counting things, 
-rates tend to look like the Poisson distribution in our universe.
-This is to say, it has one mode (one peak) with a short tail on the left side and a long tail on the right.
+Motivation -- It is a well known test in statistics when looking for fraud or cheating,
+             especially in sports, class or test grades, that if the distribution is
+             unimodal (one peak) then it has one origin. Multiple peaks indicates that
+             there are sub-populations of groups that:
+                  Subpopulation 1: Didn't cheat
+                  Subpopulation 2: Did cheat
 
-We will compute rates of votes by the frequency of DEM / REP and REP / DEM for each tabulator.
-In this way we are sensitive to specific tabulation machines or tabulators.
-We do both of these rates so that we can be sensitive to the different tails of the distribution.
+Method     -- We will sort the Clark Co. Nevada data according to precinct number
+             and tabulator number. Then we will compute the margin of REP%-DEM%
+             per tabulator per precinct as compared to a constant tabulator that
+             most (if not all) precincts used. By doing this we are keeping any
+             precinct demographic effects constant and only sensitive to two things.
+             
+             We are sensitive to:
+                  Sensitivity 1: Voting type (Early, Day-of, Mail)
+                  Sensitivity 2: Tabulator
 
-We do this because if the underlying data is described by one distribution of rates
-which, we expect to be like a Poisson, then there should be one mode (one peak)
-because the Poisson distribution (and those like it) is unimodal (one mode or one peak.) 
-If we measure that there is not one mode (one peak) and instead multiple modes (or peaks)
-then we know that the data is not consistent with one source for the rates.
+             By controlling for the voting type, since it is marked on the ballots,
+             we can make this analysis only sensitive to individual tabulators.
 
-This is because to get a rate distribution with two modes you would have to add 
-(technically convolve, which is like adding for distributions)
-two individual rate distributions together.
+Results    -- Our results, which are best shown with the attached histogram plot,
+             show that the `Early Voting' and `Election Day' votes have been manipulated.
+             The multimodal nature of the manipulation is observable so we do not need to
+             compute additional statistical tests to prove its existence.
+             We also find that the `Mail' votes are not manipulated.
+             We find that the manipulation in `Early Voting' and `Election Day' are
+             effectively identical and that they have three distributions:
+                  Distribution A: The central unmanipulated distribution.
+                                  It has a mean of roughly +0.4% , favoring REP
+                  Distribution B: The left, manipulated to bias DEM distribution.
+                                  It has a mean of roughly -0.7% , favoring DEM
+                  Distribution C: The right, manipulated to bias REP distribution.
+                                  It has a mean of roughly +1.2% , favoring REP
+             
+             We also find, as better explained in the discussion section below, by using
+             the population differences of these distributions (A,B,C) we can estimate 
+             that roughly 80000 votes were manipulated in Clark Co. Nevada.
 
-Example: If you conducted an experiment of the rate of rolling a '2' on random selection of 1000 d6 die 
-         and 1000 d12 die, you would expect to see a peak at a rate of 1/6 , from the d6s, 
-         and at 1/12 , from the d12s. Thus, it would not be unimodal.
+Discussion -- The original hypothesis of 'peak searching' lacks a method for determining how much 
+             and in what way the votes were manipulated. It only knows if they were or weren't.
+             So it is unable to determine if a significant amount of votes were changed
+             between the presidential candidates.
 
-Instead, multiple modes means multiple sources of rates.
-But! What if the data has one source? We did one experiment! (or election)
-Then multiple modes means either some of the data has been changed or some data was taken in different methods.
+             Since the control tabulator, ("5"), was a `Mail' voting tabulator, 
+             we expect a bias in the margin per tabulator.
+             We do see this in the manipulated histograms. It is about +0.4% , favoring REP.
 
-Since there are three methods of data taking that were done in Clark Co. , we will separate the rates
-according to each type of tabulation: Mail , Early Voting , Election Day
-By doing this our analysis cannot be contaminated by the separate hypothesis that multiple modes comes
-from multiple methods.
+             Since there are different voting methods we expect a bias here. 
+             We don't expect this to create additional peaks in the data. Only biases.
 
-We will measure modality using Hartigan's diptest (DOI: 10.1214/aos/1176346577)
-This is a widely used statistical measure to test if a distribution is unimodal or not.
-By using a statistical measure like this, which is narrow in scope and utility, the result should be accurate.
+             This +0.4% bias contradicts the raw, total, votes which indicate that REP dominated
+             in the `Early Voting' and `Election Day' voting by almost 20%.
 
-By doing things this way we don't need to care about the exact distribution or fitting it.
-We also can keep ourself blind to what these numbers are and the results of the test by 
-using the TamperCheck function below.
+             One possible explanation of this is that, since the histograms we see are for percentages, 
+             that the population in the precincts in Distribution A and C compared to Distribution B must
+             be different. We expect that Distribution A and C must correspond to high population
+             precincts while Distribution B is of low population.
 
-This is to say, this analysis was done in a way to keep the results unbiased.
+             This is found to be the cause. Distribution B, which favors DEM,
+             has the smallest voting population, of 7541 votes, compared to population of
+             390441 votes for Distribution A and population of 168555 votes for Distribution C.
+
+             There is a way that votes could organically split like this. If officials sorted
+             votes by party affiliation then we would see multiple distributions where this sorting
+             was applied. However, if this was the case, then the sorting should have the same populations.
+             We observe that they do not. This is problematic and further indication of manipulation.
+
+             If we assume that the sorting hypothesis was true, that the two outlier distributions, 
+             Distribution B and Distribution C, originally came from one distribution, similar to Distribution A,
+             then they must have split evenly. Then the difference between Distribution B and Distribution C
+             can be used to estimate the number of votes manipulated.
+             We find that (168555-7541)/2 = 80507 votes were manipulated (with no rounding needed).
+             This means that roughly 80000 votes were flipped or changed in someway in
+             Clark Co. Nevada if the sorted votes hypothesis is true. Regardless of the sorted votes hypothesis we
+             know that manipulation happened. The sorted votes hypothesis simply gives a way to estimate the magnitude.
+
+             We do not know if the sorted votes hypothesis is true or specifically 
+             how this manipulation was done with the current analysis. We only know that it did happen.
+             More investigation is needed.
+
+             Other studies which look at different metrics, such as voting margins of 
+             candidates on the same ballot, are needed to confirm the magnitude 
+             of manipulation of votes and their direction. Such as, were the 80000 from DEM to REP?
+             Are the 80000 simply votes that were thrown out? A combination of things?
+             This study does not know.
+
+
 Thank you.
+
+################################################################
+############### EXPLANATION , METHODOLOGY END ##################
+################################################################
