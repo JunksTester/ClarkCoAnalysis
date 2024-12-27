@@ -1,5 +1,5 @@
 # ClarkCoAnalysis
-Analysis of the ballots from the 2024 Presidential election in Clark Co. Nevada.
+Analysis of the ballots from the 2024 Presidential election in Clark County Nevada.
 
 Data taken from (https://elections.clarkcountynv.gov/electionresultsTV/cvr/24G/24G_CVRExport_NOV_Final_Confidential.zip)
 
