@@ -32,7 +32,7 @@ Method     -- We will sort the Clark Co. Nevada data according to precinct numbe
              We are sensitive to:
                   Sensitivity 1: Voting type (Early, Day-of, Mail)
                   Sensitivity 2: Tabulator
-
+                  
              By controlling for the voting type, since it is marked on the ballots,
              we can make this analysis only sensitive to individual tabulators.
 
@@ -43,6 +43,7 @@ Results    -- Our results, which are best shown with the attached histogram plot
              We also find that the `Mail' votes are not manipulated.
              We find that the manipulation in `Early Voting' and `Election Day' are
              effectively identical and that they have three distributions:
+             
                   Distribution A: The central unmanipulated distribution.
                                   It has a mean of roughly +0.4% , favoring REP
                   Distribution B: The left, manipulated to bias DEM distribution.
@@ -104,7 +105,3 @@ Discussion -- The original hypothesis of 'peak searching' lacks a method for det
 
 
 Thank you.
-
-################################################################
-############### EXPLANATION , METHODOLOGY END ##################
-################################################################
