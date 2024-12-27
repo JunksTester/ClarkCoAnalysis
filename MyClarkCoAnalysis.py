@@ -288,7 +288,23 @@ plt.hist(np.array(Mrates),bins=100,range=(-2,2),alpha=0.5,label='Mail',density=T
 plt.legend()
 plt.title("Margin of Votes REP%-DEM% with Constant Precinct, Varying Tabulator")
 plt.xlabel("Margin of Votes, REP%-DEM%")
-plt.ylabel("Normalized Bin Counts for 100 bins of 0.04% Width")
+plt.ylabel("Normalized Bin Counts for all Tabulators, all Precincts\n100 bins of 0.04% Width")
+
+#arrow to label the three distributions
+arrow_style = {
+    "head_width": 0.075,
+    "head_length": 0.15,
+    "color":"k"
+}
+plt.arrow(x=0.5,y=0.5,dx=0.05,dy=1.3,**arrow_style)
+plt.annotate('Distribution A\nPopulation: %i'%DistAPop,xy=(1,3/2),xytext=(0.35,2.1))
+
+plt.arrow(x=-0.8,y=0.9,dx=-0.4,dy=0.8,**arrow_style)
+plt.annotate('Distribution B\nPopulation: %i'%DistBPop,xy=(1,3/2),xytext=(-1.8,2.0))
+
+plt.arrow(x=1.4,y=0.5,dx=0.0,dy=0.8,**arrow_style)
+plt.annotate('Distribution C\nPopulation: %i'%DistCPop,xy=(1,3/2),xytext=(1.0,1.6))
+
 plt.savefig("VoteMarginTabulatorHist.pdf")
 plt.savefig("VoteMarginTabulatorHist.jpg")
 
