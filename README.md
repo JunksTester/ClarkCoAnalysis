@@ -11,19 +11,22 @@ We are given the Clark Co. Nevada ballot data
 We want to check if the data has been manipulated
 How do we do this?
 
-Hypothesis -- If we can control for the location (precinct) and compare tabulators,
+# Hypothesis 
+-- If we can control for the location (precinct) and compare tabulators,
              then, we propose, that manipulation looks like a multi-modal 
              (multiple peaks) distribution. If the data is unimodal (one peak) 
              then we propose that the data is unmanipulated.
 
-Motivation -- It is a well known test in statistics when looking for fraud or cheating,
+# Motivation 
+-- It is a well known test in statistics when looking for fraud or cheating,
              especially in sports, class or test grades, that if the distribution is
              unimodal (one peak) then it has one origin. Multiple peaks indicates that
              there are sub-populations of groups that:
                   Subpopulation 1: Didn't cheat
                   Subpopulation 2: Did cheat
 
-Method     -- We will sort the Clark Co. Nevada data according to precinct number
+# Method     
+-- We will sort the Clark Co. Nevada data according to precinct number
              and tabulator number. Then we will compute the margin of REP%-DEM%
              per tabulator per precinct as compared to a constant tabulator that
              most (if not all) precincts used. By doing this we are keeping any
@@ -36,12 +39,13 @@ Method     -- We will sort the Clark Co. Nevada data according to precinct numbe
              By controlling for the voting type, since it is marked on the ballots,
              we can make this analysis only sensitive to individual tabulators.
 
-Results    -- Our results, which are best shown with the attached histogram plot,
-             show that the `Early Voting' and `Election Day' votes have been manipulated.
+# Results    
+-- Our results, which are best shown with the attached histogram plot,
+             show that the 'Early Voting' and 'Election Day' votes have been manipulated.
              The multimodal nature of the manipulation is observable so we do not need to
              compute additional statistical tests to prove its existence.
-             We also find that the `Mail' votes are not manipulated.
-             We find that the manipulation in `Early Voting' and `Election Day' are
+             We also find that the 'Mail' votes are not manipulated.
+             We find that the manipulation in 'Early Voting' and 'Election Day' are
              effectively identical and that they have three distributions:
              
                   Distribution A: The central unmanipulated distribution.
@@ -55,12 +59,13 @@ Results    -- Our results, which are best shown with the attached histogram plot
              the population differences of these distributions (A,B,C) we can estimate 
              that roughly 80000 votes were manipulated in Clark Co. Nevada.
 
-Discussion -- The original hypothesis of 'peak searching' lacks a method for determining how much 
+# Discussion 
+-- The original hypothesis of 'peak searching' lacks a method for determining how much 
              and in what way the votes were manipulated. It only knows if they were or weren't.
              So it is unable to determine if a significant amount of votes were changed
              between the presidential candidates.
 
-             Since the control tabulator, ("5"), was a `Mail' voting tabulator, 
+             Since the control tabulator, ("5"), was a 'Mail' voting tabulator, 
              we expect a bias in the margin per tabulator.
              We do see this in the manipulated histograms. It is about +0.4% , favoring REP.
 
@@ -68,7 +73,7 @@ Discussion -- The original hypothesis of 'peak searching' lacks a method for det
              We don't expect this to create additional peaks in the data. Only biases.
 
              This +0.4% bias contradicts the raw, total, votes which indicate that REP dominated
-             in the `Early Voting' and `Election Day' voting by almost 20%.
+             in the 'Early Voting' and 'Election Day' voting by almost 20%.
 
              One possible explanation of this is that, since the histograms we see are for percentages, 
              that the population in the precincts in Distribution A and C compared to Distribution B must
