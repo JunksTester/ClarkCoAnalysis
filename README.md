@@ -39,7 +39,7 @@ How do we do this?
              By controlling for the voting type, since it is marked on the ballots,
              we can make this analysis only sensitive to individual tabulators.
 
-![alt text](https://github.com/JunksTester/ClarkCoAnalysis/blob/main/VoteMarginTabulatorHist.pdf?raw=true)
+![alt text](https://github.com/JunksTester/ClarkCoAnalysis/blob/main/VoteMarginTabulatorHist.jpg?raw=true)
 # Results    
 -- Our results, which are best shown with the attached histogram plot,
              show that the 'Early Voting' and 'Election Day' votes have been manipulated.
