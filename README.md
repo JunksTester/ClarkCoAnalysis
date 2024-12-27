@@ -12,13 +12,13 @@ We want to check if the data has been manipulated
 How do we do this?
 
 # Hypothesis 
--- If we can control for the location (precinct) and compare tabulators,
+If we can control for the location (precinct) and compare tabulators,
              then, we propose, that manipulation looks like a multi-modal 
              (multiple peaks) distribution. If the data is unimodal (one peak) 
              then we propose that the data is unmanipulated.
 
 # Motivation 
--- It is a well known test in statistics when looking for fraud or cheating,
+It is a well known test in statistics when looking for fraud or cheating,
              especially in sports, class or test grades, that if the distribution is
              unimodal (one peak) then it has one origin. Multiple peaks indicates that
              there are sub-populations of groups that:
@@ -26,7 +26,7 @@ How do we do this?
                   Subpopulation 2: Did cheat
 
 # Method     
--- We will sort the Clark Co. Nevada data according to precinct number
+We will sort the Clark Co. Nevada data according to precinct number
              and tabulator number. Then we will compute the margin of REP%-DEM%
              per tabulator per precinct as compared to a constant tabulator that
              most (if not all) precincts used. By doing this we are keeping any
@@ -41,7 +41,7 @@ How do we do this?
 
 ![alt text](https://github.com/JunksTester/ClarkCoAnalysis/blob/main/VoteMarginTabulatorHist.jpg?raw=true)
 # Results    
--- Our results, which are best shown with the attached histogram plot,
+Our results, which are best shown with the attached histogram plot,
              show that the 'Early Voting' and 'Election Day' votes have been manipulated.
              The multimodal nature of the manipulation is observable so we do not need to
              compute additional statistical tests to prove its existence.
@@ -61,7 +61,7 @@ How do we do this?
              that roughly 80000 votes were manipulated in Clark Co. Nevada.
 
 # Discussion 
--- The original hypothesis of 'peak searching' lacks a method for determining how much 
+The original hypothesis of 'peak searching' lacks a method for determining how much 
              and in what way the votes were manipulated. It only knows if they were or weren't.
              So it is unable to determine if a significant amount of votes were changed
              between the presidential candidates.
