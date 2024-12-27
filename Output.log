@@ -4100,15 +4100,7 @@ Voting totals by tabulator:
 125041 , Election Day		: REP = 35 , DEM = 40 , THIRD = 0
 125141 , Election Day		: REP = 43 , DEM = 49 , THIRD = 3
 118511 , Election Day		: REP = 22 , DEM = 35 , THIRD = 3
-
-##########Tamper check for Mail ##########
-Both rates of Mail are one population. It is clean and not manipulated.
-
-##########Tamper check for Early Voting ##########
-At least one of the rates distribution of Early Voting are two populations. It has been manipulated.
-
-##########Tamper check for Election Day ##########
-At least one of the rates distribution of Election Day are two populations. It has been manipulated.
-
-##########Tamper check for Example of Manipulation ##########
-At least one of the rates distribution of Example of Manipulation are two populations. It has been manipulated.
+Population of Distribution A (center peak): 390441
+Population of Distribution B (left peak): 7541
+Population of Distribution C (right peak): 168555
+Estimate of manipulated votes : 80507
