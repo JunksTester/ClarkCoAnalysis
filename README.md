@@ -39,15 +39,27 @@ We will sort the Clark Co. Nevada data according to precinct number
              By controlling for the voting type, since it is marked on the ballots,
              we can make this analysis only sensitive to individual tabulators.
 
+# Results
+
 ![alt text](https://github.com/JunksTester/ClarkCoAnalysis/blob/main/VoteMarginTabulatorHist.jpg?raw=true)
-# Results    
-Our results, which are best shown with the attached histogram plot,
+    
+Our results, which are best shown with the above histogram plot,
              show that the 'Early Voting' and 'Election Day' votes have been manipulated.
              The multimodal nature of the manipulation is observable so we do not need to
              compute additional statistical tests to prove its existence.
              We also find that the 'Mail' votes are not manipulated.
-             We find that the manipulation in 'Early Voting' and 'Election Day' are
-             effectively identical and that they have three distributions:
+
+             By comparison, we choose to investigate the results of this method for Douglas 
+             county Kansas. We use this since Kansas is not a swing state and Douglas county is 
+             of average demographics and population. The author also had access to said data from 
+             the election offices of Douglas county. One difference, in Douglas county 'Mail' 
+             votes fall under 'Provisional'. We find that the Douglas county results are
+             all unimodal, of similar mean, and look like a normal distribution.
+
+![alt text](https://github.com/JunksTester/ClarkCoAnalysis/blob/main/DgKSVoteMarginTabulatorHist.jpg?raw=true)
+
+             Returning to Clark county, we find that the manipulation in 'Early Voting' and 
+             'Election Day' are effectively identical and that they have three distributions:
              
                   Distribution A: The central unmanipulated distribution.
                                   It has a mean of roughly +0.4% , favoring REP
